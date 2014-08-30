@@ -2,14 +2,14 @@ package tads_atps_poo;
 
 public class Quarto {
 	
-	private enum TipoQuarto {COMUM,CHALE};
-	TipoQuarto tipoQuarto;
-	int numQuarto;
-	boolean ocupado;
+	public enum TipoQuarto {COMUM,CHALE};
+	private TipoQuarto tipoQuarto;
+	public int numQuarto;
+	private boolean ocupado;
 	private float precoDiaria;
-	int diarias;
-	String nomeHospede;
-	int camaExtra;
+	private int diarias;
+	public String nomeHospede;
+	private int camaExtra;
 	
 	        // Construtor da classe, inicializa os atributos
 			public Quarto(String nomeHospede, int numQuarto, int camaExtra)
