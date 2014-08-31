@@ -10,6 +10,7 @@ public class Quarto {
 	private int diarias;
 	public String nomeHospede;
 	private int camaExtra;
+	public Hospede hospede;
 	
 	        // Construtor da classe, inicializa os atributos
 			public Quarto(String nomeHospede, int numQuarto, int camaExtra)
