@@ -27,9 +27,17 @@ public class Main {
 		+ acomodacao[1].nomeHospede +"\n"+ acomodacao[1].getTipoQuarto());
 	} // Fim do main
 	
-	public void cadastrar(){
+	public class MenuPrincipal{
 		
-		
+		public void cadastrar(){
+				
+		}
+		public void menu(){
+			
+		}
+		public void fecharConta(){
+			
+		}
 		
 	}
 
