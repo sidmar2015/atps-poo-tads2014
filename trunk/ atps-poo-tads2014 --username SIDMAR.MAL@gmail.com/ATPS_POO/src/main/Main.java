@@ -49,8 +49,9 @@ public class Main {
 		}
 		public void registrarSaida(){
 			Scanner s = new Scanner(System.in);
+			int numQuarto;
 			System.out.println("Digite o numero do quarto");
-			int numQuarto = s.nextInt();
+			numQuarto = s.nextInt();
 			if(acomodacao[nQuarto].isOcupado == false){
 				System.out.println("O quarto "+ nQuarto +" Esta vazio");
 			} // fim if
