@@ -2,19 +2,19 @@ package tads_atps_poo;
 
 public class Quarto {
 	
-	enum TipoQuarto {COMUM,CHALE};
-	private TipoQuarto tipoQuarto;
+	public enum TipoQuarto {COMUM,CHALE};
+	private  TipoQuarto tipoQuarto;
 	public int numQuarto;
-	private boolean ocupado;
-	private float precoDiaria;
-	private int diarias;
-	private int camaExtra;
+	private  boolean ocupado;
+	private  float precoDiaria;
+	private  int diarias;
+	private  int camaExtra;
 	/* Objeto do tipo Hospede, a classe Quarto tem um
 	 * relacionamento do tipo TEM-UM com a classe Hospede*/ 
-	private static Hospede hospede;
+	public Hospede hospede;
 	/* Objeto do tipo Diaria, a classe Quarto tem um
 	 * relacionamento do tipo TEM-UM com a classe Diaria*/ 
-	private static Diaria  diaria;
+	public Diaria  diaria;
 	
 	
 	        // Construtor da classe, inicializa os atributos
@@ -25,29 +25,29 @@ public class Quarto {
 				}
 			
 			// Métodos que retornam variáveis encapsuladas da classe
-			public float getPrecoDiaria(){
+			public  float getPrecoDiaria(){
 				return precoDiaria;
 			}
-			public void setPrecoDiarias(float precoDiaria){
+			public  void setPrecoDiarias(float precoDiaria){
 				this.precoDiaria = precoDiaria;
 			}
 			
 			public boolean isOcupado(){
 				return ocupado;
 			}
-			public void setOcupado(boolean ocupado){
+			public  void setOcupado(boolean ocupado){
 				this.ocupado = ocupado;
 			}
 			
-			public TipoQuarto getTipoQuarto(){
+			public  TipoQuarto getTipoQuarto(){
 				return tipoQuarto;
 			}
-			public void setTipoQuarto(TipoQuarto tipoQuarto){
+			public  void setTipoQuarto(TipoQuarto tipoQuarto){
 				this.tipoQuarto = tipoQuarto;
 			}
 			
 			// Métodos da classe, testa se o quarto esta vazio
-			public void quartoVazio(){
+			public  void quartoVazio(){
 				if(isOcupado() != true)
 					setOcupado(false);
 				else

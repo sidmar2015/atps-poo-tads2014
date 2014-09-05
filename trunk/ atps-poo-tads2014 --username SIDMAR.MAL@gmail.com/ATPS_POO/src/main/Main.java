@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class Main {
 	static Quarto[] acomodacao = new Quarto[60];
-	public static void main(String[] args){
+	public static void main(String[] args) throws InterruptedException{
 			
 		/* Instancia dos 60 quartos*/
 			for(int i=0;i<60;i++){
@@ -20,12 +20,12 @@ public class Main {
 			if(i >= 60)
 				acomodacao[i].setTipoQuarto(acomodacao[i].getTipoQuarto().CHALE); // De 51 - 60 chales
 		} // Fim do laço for
-		
+		menu();
 	} // Fim do main
 	
 	
 		
-		public void registrarEntrada(){
+		public static void registrarEntrada(){
 			Scanner s = new Scanner(System.in);
 			System.out.println("Digite o numero do quarto");
 			int nQuarto = s.nextInt();
@@ -44,7 +44,7 @@ public class Main {
 				} // fim else
 		} // fim metodo
 		
-		public void menu() throws InterruptedException{
+		public static void menu() throws InterruptedException{
 			Scanner s = new Scanner(System.in);
 			System.out.println("\t\t----- MENU PRINCIPAL -----");
 			System.out.println("<1> CHECK IN <2> CHECK OUT  <3> SAIR");
@@ -67,7 +67,7 @@ public class Main {
 			
 		}
 		
-		public void registrarSaida(){
+		public static void registrarSaida(){
 			Scanner s = new Scanner(System.in);
 			int nQuarto;
 			System.out.println("Digite o numero do quarto");
