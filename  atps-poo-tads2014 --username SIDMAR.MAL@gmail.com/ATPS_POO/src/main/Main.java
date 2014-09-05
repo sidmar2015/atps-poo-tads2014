@@ -47,7 +47,7 @@ public class Main {
 		public static void menu() throws InterruptedException{
 			Scanner s = new Scanner(System.in);
 			System.out.println("\t\t----- MENU PRINCIPAL -----");
-			System.out.println("<1> CHECK IN <2> CHECK OUT  <3> SAIR");
+			System.out.println("<1> CHECK IN  <2> CHECK OUT  <3> SAIR");
 			int opcao = s.nextInt();
 			switch(opcao){
 			case 1:
