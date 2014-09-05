@@ -2,7 +2,7 @@ package tads_atps_poo;
 
 public class Quarto {
 	
-	public enum TipoQuarto {COMUM,CHALE};
+	enum TipoQuarto {COMUM,CHALE};
 	private TipoQuarto tipoQuarto;
 	public int numQuarto;
 	private boolean ocupado;
@@ -11,10 +11,10 @@ public class Quarto {
 	private int camaExtra;
 	/* Objeto do tipo Hospede, a classe Quarto tem um
 	 * relacionamento do tipo TEM-UM com a classe Hospede*/ 
-	private Hospede hospede;
+	private static Hospede hospede;
 	/* Objeto do tipo Diaria, a classe Quarto tem um
 	 * relacionamento do tipo TEM-UM com a classe Diaria*/ 
-	private Diaria  diaria;
+	private static Diaria  diaria;
 	
 	
 	        // Construtor da classe, inicializa os atributos
