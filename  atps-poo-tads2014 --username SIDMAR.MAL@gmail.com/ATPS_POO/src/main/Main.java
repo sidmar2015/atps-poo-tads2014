@@ -30,7 +30,7 @@ public class Main {
 			System.out.println("Digite o numero do quarto");
 			int nQuarto = s.nextInt();
 			    /* testa se o quarto esta vazio*/
-				if(acomodacao[nQuarto].isOcupado == true){
+				if(acomodacao[nQuarto].isOcupado() == true){
 					System.out.println("O quarto "+ nQuarto +" Esta ocupado");
 					return ;
 				} // fim if
@@ -44,15 +44,35 @@ public class Main {
 				} // fim else
 		} // fim metodo
 		
-		public void menu(){
+		public void menu() throws InterruptedException{
+			Scanner s = new Scanner(System.in);
+			System.out.println("\t\t----- MENU PRINCIPAL -----");
+			System.out.println("<1> CHECK IN <2> CHECK OUT  <3> SAIR");
+			int opcao = s.nextInt();
+			switch(opcao){
+			case 1:
+				registrarEntrada();
+				break;
+			case 2:
+				registrarSaida();
+				break;
+			case 3:
+				System.exit(0);
+			default:
+				System.out.println("COMANDO NAO RECONHECIDO");
+				Thread.sleep(2000);
+				return;
+				
+			}
 			
 		}
+		
 		public void registrarSaida(){
 			Scanner s = new Scanner(System.in);
-			int numQuarto;
+			int nQuarto;
 			System.out.println("Digite o numero do quarto");
-			numQuarto = s.nextInt();
-			if(acomodacao[nQuarto].isOcupado == false){
+			nQuarto = s.nextInt();
+			if(acomodacao[nQuarto].isOcupado() == false){
 				System.out.println("O quarto "+ nQuarto +" Esta vazio");
 			} // fim if
 			else{
