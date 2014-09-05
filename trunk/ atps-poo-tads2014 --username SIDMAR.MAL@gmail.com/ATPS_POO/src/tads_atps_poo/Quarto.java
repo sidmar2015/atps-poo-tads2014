@@ -4,7 +4,7 @@ public class Quarto {
 	
 	public enum TipoQuarto {COMUM,CHALE};
 	private  TipoQuarto tipoQuarto;
-	public int numQuarto;
+	private  int numQuarto;
 	private  boolean ocupado;
 	private  float precoDiaria;
 	private  int diarias;
