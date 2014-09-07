@@ -11,10 +11,10 @@ public class Quarto {
 	private  int camaExtra;
 	/* Objeto do tipo Hospede, a classe Quarto tem um
 	 * relacionamento do tipo TEM-UM com a classe Hospede*/ 
-	public Hospede hospede;
+	public Hospede hospede = new Hospede();
 	/* Objeto do tipo Diaria, a classe Quarto tem um
 	 * relacionamento do tipo TEM-UM com a classe Diaria*/ 
-	public Diaria  diaria;
+	public Diaria  diaria = new Diaria();
 	
 	
 	        // Construtor da classe, inicializa os atributos

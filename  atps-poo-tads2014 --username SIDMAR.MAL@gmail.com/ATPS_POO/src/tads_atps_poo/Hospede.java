@@ -8,7 +8,17 @@ public class Hospede {
 	private  String dataSaida;
 	private  String horaEntrada;
 	private  String horaSaida;
-	
+		// Contrutor da classe
+		public Hospede(){
+			String nome = this.nome;
+			String numdocumento = this.numDocumento;
+			String dataEntrada = this.dataEntrada;
+			String dataSaida = this.dataSaida;
+			String horaEntrada = this.horaEntrada;
+			String horaSaida = this.horaSaida;
+		}
+		
+	// Encapsulamento	
 	public  String getNome() {
 		return nome;
 	}
