@@ -22,7 +22,9 @@ public class Main {
 			if(i >= 60)
 				acomodacao[i].setTipoQuarto(acomodacao[i].getTipoQuarto().CHALE); // De 51 - 60 chales
 		} // Fim do laço for
-		menu();
+			
+				menu();
+			
 	} // Fim do main
 	
 	
@@ -31,8 +33,8 @@ public class Main {
 		              /* METODO MENU*/
 		public static void menu() throws InterruptedException{
 			Scanner s = new Scanner(System.in);
-			System.out.println("\t\t----- MENU PRINCIPAL -----");
-			System.out.println("<1> CHECK IN  <2> CHECK OUT  <3> SAIR");
+			System.out.println("\t\t----- MENU PRINCIPAL -----\n\n");
+			System.out.println("\t  <1> CHECK IN  <2> CHECK OUT  <3> SAIR");
 			int opcao = s.nextInt();
 			switch(opcao){
 			case 1:
@@ -72,8 +74,10 @@ public class Main {
 					String nDoc = s.next();
 					acomodacao[nQuarto].hospede.setNumDocumento(nDoc);
 					System.out.println("Digite a data de entada dd/mm/aaaa");
-					acomodacao[nQuarto].hospede.setDataEntrada(s.next());
+					String data = s.next();
+					acomodacao[nQuarto].hospede.setDataEntrada(data);
 					s.close();
+					return;
 				} // fim else
 		} // fim metodo
 		
@@ -90,7 +94,6 @@ public class Main {
 			else{
 				System.out.println("Deseja fechar a conta do quarto "+nQuarto+"? <1> SIM <2> NAO");
 				int opcao = s.nextInt();
-				s.close();
 				
 				switch(opcao){
 				case 1:
@@ -108,6 +111,7 @@ public class Main {
 				default:
 					return;
 				}// fim switch
+				s.close();
 			}// fim else
 		}// fim metodo
 		
