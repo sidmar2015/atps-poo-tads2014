@@ -3,7 +3,7 @@ package tads_atps_poo;
 public class Quarto {
 	
 	public enum TipoQuarto {COMUM,CHALE};
-	private  TipoQuarto tipoQuarto;
+	public  TipoQuarto tipoQuarto;
 	private  int numQuarto;
 	private  boolean ocupado;
 	private  float precoDiaria;
@@ -22,6 +22,7 @@ public class Quarto {
 			{
 				this.numQuarto = numQuarto;
 				this.camaExtra = camaExtra;
+				this.tipoQuarto = tipoQuarto;
 				}
 			
 			// Métodos que retornam variáveis encapsuladas da classe
