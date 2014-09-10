@@ -1,13 +1,9 @@
 package main;
 
 import tads_atps_poo.*;
-
 import java.util.Collection;
-
 import javax.swing.*;
-
 import java.util.Scanner;
-import java.lang.NullPointerException;
 import java.lang.InterruptedException;
 
 public class Main {
@@ -19,8 +15,10 @@ public class Main {
 			acomodacao[i] = new Quarto(i,0);
 			if(i <= 50)
 				acomodacao[i].setTipoQuarto(acomodacao[i].getTipoQuarto().COMUM); // De 1 - 50 quartos comuns
+			acomodacao[i].setPrecoDiarias(105.00f); // preço da diaria
 			if(i >= 60)
 				acomodacao[i].setTipoQuarto(acomodacao[i].getTipoQuarto().CHALE); // De 51 - 60 chales
+			    acomodacao[i].setPrecoDiarias(115.00f); // preço da diaria
 		} // Fim do laço for
 			
 				menu();
@@ -31,7 +29,11 @@ public class Main {
 		
 				
 		              /* METODO MENU*/
-		public static void menu() throws InterruptedException{
+		public static void menu(){
+			JFrame janela = new JFrame();
+			JButton btn_1 = new JButton();
+			JButton btn_2 = new JButton();
+			
 			Scanner s = new Scanner(System.in);
 			System.out.println("\t\t----- MENU PRINCIPAL -----\n\n");
 			System.out.println("\t  <1> CHECK IN  <2> CHECK OUT  <3> SAIR");
@@ -47,71 +49,71 @@ public class Main {
 				System.exit(0);
 			default:
 				System.out.println("COMANDO NAO RECONHECIDO");
-				Thread.sleep(2000);
+				//sleep(2000);
 				s.close();
 				return;
 				
 			}
-			s.close();
+			
 		}
 		
 		      /*METODO DE CHECK IN*/
 		public static void registrarEntrada(){
-			Scanner s = new Scanner(System.in);
-			System.out.println("Digite o numero do quarto");
-			int nQuarto = s.nextInt();
+			
+			String num = JOptionPane.showInputDialog("Digite o numero do quarto");
+			Integer nQuarto = Integer.parseInt(num);
 			    /* testa se o quarto esta vazio*/
 				if(acomodacao[nQuarto].isOcupado() == true){
-					System.out.println("O quarto "+ nQuarto +" Esta ocupado");
-					s.close();
-					return ;
+					//System.out.println("O quarto "+ nQuarto +" Esta ocupado");
+					JOptionPane.showMessageDialog(null, "O quarto "+ nQuarto +" Esta ocupado");
 					} // fim if
-				else{
-					System.out.println("Digite o nome do hospede");
-					String nome = s.next();
+					else{
+					String nome = JOptionPane.showInputDialog("Digite o nome do hospede");
 					acomodacao[nQuarto].hospede.setNome(nome);
-					System.out.println("Digite o numero de documento do hospede");
-					String nDoc = s.next();
+					
+					String nDoc = JOptionPane.showInputDialog("Digite o numero de documento do hospede");
 					acomodacao[nQuarto].hospede.setNumDocumento(nDoc);
-					System.out.println("Digite a data de entada dd/mm/aaaa");
-					String data = s.next();
+					
+					String data = JOptionPane.showInputDialog("Digite a data de entada dd/mm/aaaa");
 					acomodacao[nQuarto].hospede.setDataEntrada(data);
-					s.close();
-					return;
-				} // fim else
+					acomodacao[nQuarto].setOcupado(true); // registra a ocupação do quarto
+					} // fim else
+				menu();
 		} // fim metodo
 		
 		     /*METODO DE CHECK OUT*/
 		public static void registrarSaida(){
-			Scanner s = new Scanner(System.in);
-			int nQuarto;
-			System.out.println("Digite o numero do quarto");
-			nQuarto = s.nextInt();
+			String quarto;
+			quarto = JOptionPane.showInputDialog("Digite o numero do quarto");
+			Integer nQuarto = new Integer(quarto);
+			nQuarto.parseInt(quarto);// converte a string para inteiro
 			if(acomodacao[nQuarto].isOcupado() == false){
 				System.out.println("O quarto "+ nQuarto +" Esta vazio");
-				s.close();
+				
+				
+					menu();
+				
 			} // fim if
 			else{
-				System.out.println("Deseja fechar a conta do quarto "+nQuarto+"? <1> SIM <2> NAO");
-				int opcao = s.nextInt();
+				//System.out.println("Deseja fechar a conta do quarto "+nQuarto+"? <1> SIM <2> NAO");
+				Object[] options = { "OK", "CANCELAR" };
+			      JOptionPane.showOptionDialog(null, "Clique OK para continuar", "Deseja fechar a conta do quarto "+nQuarto+"?",
+			          JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE,
+			              null, options, options[0]);
 				
-				switch(opcao){
-				case 1:
+					//System.out.println("Digite a data de saida dd/mm/aaaa");
+					String saida = JOptionPane.showInputDialog("Digite a data de saida dd/mm/aaaa");
 					// captura o total de diarias devidas
 					int tDiarias = acomodacao[nQuarto].diaria.calculaDiarias(acomodacao[nQuarto].hospede.getDataEntrada(),
-							acomodacao[nQuarto].hospede.getDataSaida());
+							saida);
 					// efetua os calculos e imprime as informações na tela
-					System.out.println("Tempo de permanencia do Sr(a) "+acomodacao[nQuarto].hospede.getNome()+"\n"
+					JOptionPane.showMessageDialog(null,"Tempo de permanencia do Sr(a) "+acomodacao[nQuarto].hospede.getNome()+"\n"
 							+tDiarias+" dias, data de entrada "+acomodacao[nQuarto].hospede.getDataEntrada()+
-							" data de saida "+acomodacao[nQuarto].hospede.getDataSaida()+
-							"\n Total a pagar: "+(tDiarias*acomodacao[nQuarto].getPrecoDiaria()));
-					break;
-				case 2:
-					return;
-				default:
-					return;
-				}// fim switch
-				s.close();
+							" data de saida "+saida+
+							"\n Total a pagar: "+(tDiarias*acomodacao[nQuarto].getPrecoDiaria()+" R$"));
+					
+					menu();
+				
 			}// fim else
 		}// fim metodo
 		

@@ -13,11 +13,19 @@ public class Diaria {
 	long tempoHoras;
 	int  diarias;
 	
+	public Diaria(){
+		this.dataEntrada = dataEntrada;
+		this.dataSaida = dataSaida;
+		this.tempoMS = tempoMS;
+		this.tempoSeg = tempoSeg;
+		this.tempoMin = tempoMin;
+		this.tempoHoras = tempoHoras;
+	}
 	
 	public int calculaDiarias(String entrada, String saida){
 		try{
 			dataEntrada = data.parse(entrada); // recebe a data da entrada do hospede
-			dataSaida   = data.parse(saida);   // revebe a data de saida do hospede
+			dataSaida   = data.parse(saida);    // recebe a data de saida do hospede
 		}catch(java.text.ParseException e){    // lança uma exceção caso não seja possivel converter a data
 			return 0;
 			}
