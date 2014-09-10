@@ -41,7 +41,7 @@ public class Main {
 		              /* METODO MENU*/
 		public static void menu(){
 			
-			JFrame janela = new JFrame("Menu Principal");
+			/*JFrame janela = new JFrame("Menu Principal");
 			JLabel rotulo = new JLabel();
 			JButton btn_1 = new JButton("CHECK IN");
 			JButton btn_2 = new JButton("CHECK OUT");
@@ -116,7 +116,7 @@ public class Main {
 			Integer nQuarto = new Integer(quarto);
 			nQuarto.parseInt(quarto);// converte a string para inteiro
 			if(acomodacao[nQuarto].isOcupado() == false){
-				System.out.println("O quarto "+ nQuarto +" Esta vazio");
+				JOptionPane.showMessageDialog(null,"O quarto "+ nQuarto +" Esta vazio");
 				
 				
 					menu();
@@ -125,7 +125,7 @@ public class Main {
 			else{
 				//System.out.println("Deseja fechar a conta do quarto "+nQuarto+"? <1> SIM <2> NAO");
 				Object[] options = { "OK", "CANCELAR" };
-			      JOptionPane.showOptionDialog(null, "Clique OK para continuar", "Deseja fechar a conta do quarto "+nQuarto+"?",
+			      JOptionPane.showOptionDialog(null, "Clique OK para continuar", "Deseja fechar a conta do quarto "+nQuarto+" ?",
 			          JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE,
 			              null, options, options[0]);
 				
