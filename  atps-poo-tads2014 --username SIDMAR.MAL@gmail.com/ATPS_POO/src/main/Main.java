@@ -1,6 +1,16 @@
+
+/* PROGRAMA PARA CÁLCULO DE DIÁRIAS DE UMA POUSADA
+ * CRIADO POR SIDMAR PORFIRIO RA 7989711257 ALUNO DO 3º SEMESTRE
+ * DO CURSO DE TADS DA FACULDADE ANHANGUERA DE CAMPINAS
+ * UNIDADE 1, PARA A ATIVIDADE PRATICA SUPERVISIONADA
+ * DA DISCIPLINA DE PROGRAMAÇÃO ORIENTADA A OBJETOS
+ */
+
+
 package main;
 
 import tads_atps_poo.*;
+
 import java.util.Collection;
 import javax.swing.*;
 import java.util.Scanner;
@@ -30,9 +40,24 @@ public class Main {
 				
 		              /* METODO MENU*/
 		public static void menu(){
-			JFrame janela = new JFrame();
-			JButton btn_1 = new JButton();
-			JButton btn_2 = new JButton();
+			
+			JFrame janela = new JFrame("Menu Principal");
+			JLabel rotulo = new JLabel();
+			JButton btn_1 = new JButton("CHECK IN");
+			JButton btn_2 = new JButton("CHECK OUT");
+			
+			btn_1.setSize(50,100);
+			btn_2.setSize(50,100);
+			
+			//janela.setLayout(null);
+			janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
+	        janela.setVisible(true);  
+	        janela.setSize(500,500);
+	        janela.add(rotulo);
+	        janela.add(btn_1);
+	        janela.add(btn_2);
+	        
+	        /* DAQUI PARA BAIXO FUNCIONA PERFEITAMENTE*/
 			
 			Scanner s = new Scanner(System.in);
 			System.out.println("\t\t----- MENU PRINCIPAL -----\n\n");
@@ -57,7 +82,10 @@ public class Main {
 			
 		}
 		
-		      /*METODO DE CHECK IN*/
+		     
+
+
+		/*METODO DE CHECK IN*/
 		public static void registrarEntrada(){
 			
 			String num = JOptionPane.showInputDialog("Digite o numero do quarto");
