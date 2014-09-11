@@ -11,6 +11,7 @@ package main;
 
 import tads_atps_poo.*;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.swing.*;
@@ -27,7 +28,7 @@ public class Main {
 	public static void main(String[] args) throws InterruptedException{
 			
 		/* Instancia dos 60 quartos*/
-			for(int i=0;i<60;i++){
+		/*	for(int i=0;i<60;i++){
 			acomodacao[i] = new Quarto(i,0);
 			if(i <= 50)
 				acomodacao[i].setTipoQuarto(acomodacao[i].getTipoQuarto().COMUM); // De 1 - 50 quartos comuns
@@ -35,7 +36,9 @@ public class Main {
 			if(i >= 60)
 				acomodacao[i].setTipoQuarto(acomodacao[i].getTipoQuarto().CHALE); // De 51 - 60 chales
 			    acomodacao[i].setPrecoDiarias(115.00f); // preço da diaria
-		} // Fim do laço for
+		} // Fim do laço for*/ 
+		ArrayList quartos = new ArrayList<QuartoComum>();
+		ArrayList chales  = new ArrayList<Chale>();
 			
 				menu();
 			
