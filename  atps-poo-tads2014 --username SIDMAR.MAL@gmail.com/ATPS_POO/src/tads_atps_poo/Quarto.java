@@ -20,6 +20,7 @@ public class Quarto {
 	        // Construtor da classe, inicializa os atributos
 			public Quarto(int numQuarto, int camaExtra)
 			{
+				super();
 				this.numQuarto = numQuarto;
 				this.camaExtra = camaExtra;
 				this.tipoQuarto = tipoQuarto;
