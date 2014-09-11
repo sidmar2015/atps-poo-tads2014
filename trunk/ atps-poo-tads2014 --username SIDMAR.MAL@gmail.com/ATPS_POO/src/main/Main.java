@@ -12,12 +12,18 @@ package main;
 import tads_atps_poo.*;
 
 import java.util.Collection;
+
 import javax.swing.*;
+
 import java.util.Scanner;
 import java.lang.InterruptedException;
+import java.awt.ActiveEvent;
+import java.awt.FlowLayout;
+
 
 public class Main {
-	static Quarto[] acomodacao = new Quarto[60];
+	public static Quarto[] acomodacao = new Quarto[60];
+	
 	public static void main(String[] args) throws InterruptedException{
 			
 		/* Instancia dos 60 quartos*/
@@ -41,21 +47,28 @@ public class Main {
 		              /* METODO MENU*/
 		public static void menu(){
 			
-			/*JFrame janela = new JFrame("Menu Principal");
-			JLabel rotulo = new JLabel();
+			JFrame janela = new JFrame("POUSADA SYS");
+			JLabel rotulo = new JLabel("MENU PRINCIPAL");
 			JButton btn_1 = new JButton("CHECK IN");
 			JButton btn_2 = new JButton("CHECK OUT");
+			JButton btn_3 = new JButton("ALTERAR DIARIA");
+			JTextField jTxt = new JTextField();
 			
 			btn_1.setSize(50,100);
 			btn_2.setSize(50,100);
+			btn_3.setSize(50,150);
 			
-			//janela.setLayout(null);
+										
+			janela.setLayout(new FlowLayout());
 			janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
 	        janela.setVisible(true);  
-	        janela.setSize(500,500);
+	        janela.setSize(400,400);
 	        janela.add(rotulo);
 	        janela.add(btn_1);
 	        janela.add(btn_2);
+	        janela.add(btn_3);
+	        janela.add(jTxt);
+	        jTxt.setText("");
 	        
 	        /* DAQUI PARA BAIXO FUNCIONA PERFEITAMENTE*/
 			
@@ -73,10 +86,8 @@ public class Main {
 			case 3:
 				System.exit(0);
 			default:
-				System.out.println("COMANDO NAO RECONHECIDO");
-				//sleep(2000);
-				s.close();
-				return;
+				JOptionPane.showMessageDialog(null,"COMANDO NAO RECONHECIDO");
+				menu();
 				
 			}
 			
@@ -84,7 +95,7 @@ public class Main {
 		
 		     
 
-
+  
 		/*METODO DE CHECK IN*/
 		public static void registrarEntrada(){
 			
@@ -145,6 +156,7 @@ public class Main {
 			}// fim else
 		}// fim metodo
 		
+	
 	
 
 }
