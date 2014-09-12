@@ -24,21 +24,26 @@ import java.awt.FlowLayout;
 
 public class Main {
 	public static Quarto[] acomodacao = new Quarto[60];
+	public static ArrayList quartos = new ArrayList<QuartoComum>();
+	public static ArrayList chales  = new ArrayList<Chale>();
 	
 	public static void main(String[] args) throws InterruptedException{
 			
 		/* Instancia dos 60 quartos*/
-		/*	for(int i=0;i<60;i++){
-			acomodacao[i] = new Quarto(i,0);
+			/*for(int i=0;i<60;i++){
+			quartos.add(i);
+			quartos.
+			if(i <= 25)
+				acomodacao[i].setTipoQuarto(acomodacao[i].getTipoQuarto().COMUM); // De 1 - 50 quartos comuns
+			acomodacao[i].setPrecoDiarias(105.00f); // preço da diaria
 			if(i <= 50)
 				acomodacao[i].setTipoQuarto(acomodacao[i].getTipoQuarto().COMUM); // De 1 - 50 quartos comuns
 			acomodacao[i].setPrecoDiarias(105.00f); // preço da diaria
 			if(i >= 60)
 				acomodacao[i].setTipoQuarto(acomodacao[i].getTipoQuarto().CHALE); // De 51 - 60 chales
 			    acomodacao[i].setPrecoDiarias(115.00f); // preço da diaria
-		} // Fim do laço for*/ 
-		ArrayList quartos = new ArrayList<QuartoComum>();
-		ArrayList chales  = new ArrayList<Chale>();
+		} // Fim do laço for*/
+		
 			
 				menu();
 			
@@ -49,7 +54,7 @@ public class Main {
 				
 		              /* METODO MENU*/
 		public static void menu(){
-			
+			/*
 			JFrame janela = new JFrame("POUSADA SYS");
 			JLabel rotulo = new JLabel("MENU PRINCIPAL");
 			JButton btn_1 = new JButton("CHECK IN");
@@ -71,7 +76,7 @@ public class Main {
 	        janela.add(btn_2);
 	        janela.add(btn_3);
 	        janela.add(jTxt);
-	        jTxt.setText("");
+	        jTxt.setText("");*/
 	        
 	        /* DAQUI PARA BAIXO FUNCIONA PERFEITAMENTE*/
 			
@@ -105,9 +110,9 @@ public class Main {
 			String num = JOptionPane.showInputDialog("Digite o numero do quarto");
 			Integer nQuarto = Integer.parseInt(num);
 			    /* testa se o quarto esta vazio*/
-				if(acomodacao[nQuarto].isOcupado() == true){
-					//System.out.println("O quarto "+ nQuarto +" Esta ocupado");
+				if(acomodacao[nQuarto].isOcupado()){
 					JOptionPane.showMessageDialog(null, "O quarto "+ nQuarto +" Esta ocupado");
+					menu();
 					} // fim if
 					else{
 					String nome = JOptionPane.showInputDialog("Digite o nome do hospede");
