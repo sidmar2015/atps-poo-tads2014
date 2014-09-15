@@ -23,12 +23,15 @@ import java.awt.FlowLayout;
 
 
 public class Main {
+	
 	public static Quarto[] acomodacao = new Quarto[60];
-	public static ArrayList quartos = new ArrayList<QuartoComum>();
-	public static ArrayList chales  = new ArrayList<Chale>();
+	public static ArrayList listaQuartos = new ArrayList();
+	public static ArrayList listaChales  = new ArrayList();
+	public static Chale chales = new Chale(0,0);
+	public static QuartoComum quartos = new QuartoComum(0,0);
 	
 	public static void main(String[] args) throws InterruptedException{
-			
+		
 		/* Instancia dos 60 quartos*/
 			/*for(int i=0;i<60;i++){
 			quartos.add(i);
@@ -106,9 +109,13 @@ public class Main {
   
 		/*METODO DE CHECK IN*/
 		public static void registrarEntrada(){
+			String escolha = JOptionPane.showInputDialog("Deseja um quarto ou chale ?");
+			if((escolha == "quarto")||(escolha == "QUARTO")||(escolha == "Quarto")||(escolha == "q")||(escolha == "Q")){
+				String num = JOptionPane.showInputDialog("Digite o numero do quarto");
+				Integer nQuarto = Integer.parseInt(num);
+				quartos.setNumQuarto(nQuarto);
+			}
 			
-			String num = JOptionPane.showInputDialog("Digite o numero do quarto");
-			Integer nQuarto = Integer.parseInt(num);
 			    /* testa se o quarto esta vazio*/
 				if(acomodacao[nQuarto].isOcupado()){
 					JOptionPane.showMessageDialog(null, "O quarto "+ nQuarto +" Esta ocupado");
