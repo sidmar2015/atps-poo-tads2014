@@ -47,6 +47,25 @@ public class Quarto {
 			public  void setTipoQuarto(TipoQuarto tipoQuarto){
 				this.tipoQuarto = tipoQuarto;
 			}
+			public int getNumQuarto() {
+				return numQuarto;
+			}
+
+			public void setNumQuarto(int numQuarto) {
+				this.numQuarto = numQuarto;
+			}
+
+			public int getCamaExtra() {
+				return camaExtra;
+			}
+
+			public void setCamaExtra(int camaExtra) {
+				this.camaExtra = camaExtra;
+			}
+
+			public void setPrecoDiaria(float precoDiaria) {
+				this.precoDiaria = precoDiaria;
+			}
 			
 			// Métodos da classe, testa se o quarto esta vazio
 			public  void quartoVazio(){

@@ -25,8 +25,8 @@ import java.awt.FlowLayout;
 public class Main {
 	
 	public static Quarto[] acomodacao = new Quarto[60];
-	public static ArrayList listaQuartos = new ArrayList();
-	public static ArrayList listaChales  = new ArrayList();
+	public static ArrayList<QuartoComum> listaQuartos = new ArrayList<QuartoComum>();
+	public static ArrayList<Chale> listaChales  = new ArrayList<Chale>();
 	public static Chale chales = new Chale(0,0);
 	public static QuartoComum quartos = new QuartoComum(0,0);
 	
@@ -114,6 +114,20 @@ public class Main {
 				String num = JOptionPane.showInputDialog("Digite o numero do quarto");
 				Integer nQuarto = Integer.parseInt(num);
 				quartos.setNumQuarto(nQuarto);
+				if(!listaQuartos.isEmpty()){
+					JOptionPane.showMessageDialog(null, "O quarto "+ nQuarto +" Esta ocupado");
+					menu();
+				}
+				else{
+					String nome = JOptionPane.showInputDialog("Digite o nome do hospede");
+					quartos.hospede.setNome(nome);
+					String nDoc = JOptionPane.showInputDialog("Digite o numero de documento do hospede");
+					quartos.hospede.setNumDocumento(nDoc);
+					String data = JOptionPane.showInputDialog("Digite a data de entada dd/mm/aaaa");
+					quartos.hospede.setDataEntrada(data);
+					quartos.setOcupado(true);
+					listaQuartos.add(nQuarto, quartos);
+				}
 			}
 			
 			    /* testa se o quarto esta vazio*/
