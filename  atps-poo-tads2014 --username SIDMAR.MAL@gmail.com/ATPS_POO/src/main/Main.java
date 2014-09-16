@@ -24,7 +24,7 @@ import java.awt.FlowLayout;
 
 public class Main {
 	
-	public static Quarto[] acomodacao = new Quarto[60];
+	public static Quarto[] quartos = new Quarto[60];
 	public static ArrayList<QuartoComum> listaQuartos = new ArrayList<QuartoComum>();
 	public static ArrayList<Chale> listaChales  = new ArrayList<Chale>();
 	public static Chale chales = new Chale(0,0);
@@ -33,19 +33,17 @@ public class Main {
 	public static void main(String[] args) throws InterruptedException{
 		
 		/* Instancia dos 60 quartos*/
-			/*for(int i=0;i<60;i++){
-			quartos.add(i);
-			quartos.
+			for(int i=1;i<61;i++){
 			if(i <= 25)
-				acomodacao[i].setTipoQuarto(acomodacao[i].getTipoQuarto().COMUM); // De 1 - 50 quartos comuns
-			acomodacao[i].setPrecoDiarias(105.00f); // preço da diaria
+				quartos[i].setTipoQuarto(quartos[i].getTipoQuarto().COMUM); // De 1 - 50 quartos comuns
+			quartos[i].setPrecoDiarias(105.00f); // preço da diaria
 			if(i <= 50)
-				acomodacao[i].setTipoQuarto(acomodacao[i].getTipoQuarto().COMUM); // De 1 - 50 quartos comuns
-			acomodacao[i].setPrecoDiarias(105.00f); // preço da diaria
+				quartos[i].setTipoQuarto(quartos[i].getTipoQuarto().COMUM); // De 1 - 50 quartos comuns
+			quartos[i].setPrecoDiarias(105.00f); // preço da diaria
 			if(i >= 60)
-				acomodacao[i].setTipoQuarto(acomodacao[i].getTipoQuarto().CHALE); // De 51 - 60 chales
-			    acomodacao[i].setPrecoDiarias(115.00f); // preço da diaria
-		} // Fim do laço for*/
+				quartos[i].setTipoQuarto(quartos[i].getTipoQuarto().CHALE); // De 51 - 60 chales
+			quartos[i].setPrecoDiarias(115.00f); // preço da diaria
+		} // Fim do laço for
 		
 			
 				menu();
@@ -110,27 +108,40 @@ public class Main {
 		/*METODO DE CHECK IN*/
 		public static void registrarEntrada(){
 			String escolha = JOptionPane.showInputDialog("Deseja um quarto ou chale ?");
-			if((escolha == "quarto")||(escolha == "QUARTO")||(escolha == "Quarto")||(escolha == "q")||(escolha == "Q")){
+			if((escolha != "quarto")||(escolha != "QUARTO")||(escolha != "Quarto")||(escolha != "q")||(escolha != "Q")){
 				String num = JOptionPane.showInputDialog("Digite o numero do quarto");
-				Integer nQuarto = Integer.parseInt(num);
-				quartos.setNumQuarto(nQuarto);
+				Integer nQto = Integer.parseInt(num);
+				quartos[nQto].setNumQuarto(nQto);
 				if(!listaQuartos.isEmpty()){
 					JOptionPane.showMessageDialog(null, "O quarto "+ nQuarto +" Esta ocupado");
 					menu();
-				}
+				}//fim if interno
 				else{
 					String nome = JOptionPane.showInputDialog("Digite o nome do hospede");
-					quartos.hospede.setNome(nome);
+					//quartos.hospede.setNome(nome);
 					String nDoc = JOptionPane.showInputDialog("Digite o numero de documento do hospede");
-					quartos.hospede.setNumDocumento(nDoc);
+					//quartos.hospede.setNumDocumento(nDoc);
 					String data = JOptionPane.showInputDialog("Digite a data de entada dd/mm/aaaa");
-					quartos.hospede.setDataEntrada(data);
-					quartos.setOcupado(true);
-					listaQuartos.add(nQuarto, quartos);
-				}
-			}
+					//quartos.hospede.setDataEntrada(data);
+					//quartos.setOcupado(true);
+					//quartos.setNumQuarto(nQuarto);
+					QuartoComum q = new QuartoComum(nQuarto,0);
+					q.hospede.setNome(nome);
+					q.hospede.setNumDocumento(nDoc);
+					q.hospede.setDataEntrada(data);
+					q.setOcupado(true);
+					
+					listaQuartos.add
+					menu();
+				}//fim else interno
+			  }//fim if externo
+			  else{
+				  JOptionPane.showMessageDialog(null, "Opcao Nao Reconhecida !");
+				  menu();
+			  }//fim else externo
+			}//fim método
 			
-			    /* testa se o quarto esta vazio*/
+			    /* testa se o quarto esta vazio
 				if(acomodacao[nQuarto].isOcupado()){
 					JOptionPane.showMessageDialog(null, "O quarto "+ nQuarto +" Esta ocupado");
 					menu();
@@ -147,7 +158,7 @@ public class Main {
 					acomodacao[nQuarto].setOcupado(true); // registra a ocupação do quarto
 					} // fim else
 				menu();
-		} // fim metodo
+		} // fim metodo*/
 		
 		     /*METODO DE CHECK OUT*/
 		public static void registrarSaida(){
@@ -155,7 +166,8 @@ public class Main {
 			quarto = JOptionPane.showInputDialog("Digite o numero do quarto");
 			Integer nQuarto = new Integer(quarto);
 			nQuarto.parseInt(quarto);// converte a string para inteiro
-			if(acomodacao[nQuarto].isOcupado() == false){
+			quartos = listaQuartos.get(nQuarto);
+			if(quartos.isOcupado() == false){
 				JOptionPane.showMessageDialog(null,"O quarto "+ nQuarto +" Esta vazio");
 				
 				
@@ -172,13 +184,13 @@ public class Main {
 					//System.out.println("Digite a data de saida dd/mm/aaaa");
 					String saida = JOptionPane.showInputDialog("Digite a data de saida dd/mm/aaaa");
 					// captura o total de diarias devidas
-					int tDiarias = acomodacao[nQuarto].diaria.calculaDiarias(acomodacao[nQuarto].hospede.getDataEntrada(),
+					int tDiarias = quartos.diaria.calculaDiarias(quartos.hospede.getDataEntrada(),
 							saida);
 					// efetua os calculos e imprime as informações na tela
-					JOptionPane.showMessageDialog(null,"Tempo de permanencia do Sr(a) "+acomodacao[nQuarto].hospede.getNome()+"\n"
-							+tDiarias+" dias, data de entrada "+acomodacao[nQuarto].hospede.getDataEntrada()+
+					JOptionPane.showMessageDialog(null,"Tempo de permanencia do Sr(a) "+quartos.hospede.getNome()+"\n"
+							+tDiarias+" dias, data de entrada "+quartos.hospede.getDataEntrada()+
 							" data de saida "+saida+
-							"\n Total a pagar: "+(tDiarias*acomodacao[nQuarto].getPrecoDiaria()+" R$"));
+							"\n Total a pagar: "+(tDiarias*quartos.getPrecoDiaria()+" R$"));
 					
 					menu();
 				
