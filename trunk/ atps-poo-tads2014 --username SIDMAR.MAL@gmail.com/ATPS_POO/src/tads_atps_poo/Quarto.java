@@ -6,6 +6,7 @@ public class Quarto {
 	public  TipoQuarto tipoQuarto;
 	private  int numQuarto;
 	private  boolean ocupado;
+	private  boolean banheira;
 	private  float precoDiaria;
 	private  int diarias;
 	private  int camaExtra;
@@ -23,10 +24,18 @@ public class Quarto {
 				super();
 				this.numQuarto = numQuarto;
 				this.camaExtra = camaExtra;
-				this.tipoQuarto = tipoQuarto;
+				
 				}
 			
 			// Métodos que retornam variáveis encapsuladas da classe
+			public boolean isBanheira() {
+				return banheira;
+			}
+
+			public void setBanheira(boolean banheira) {
+				this.banheira = banheira;
+			}
+			
 			public  float getPrecoDiaria(){
 				return precoDiaria;
 			}
@@ -63,15 +72,29 @@ public class Quarto {
 				this.camaExtra = camaExtra;
 			}
 
-			public void setPrecoDiaria(float precoDiaria) {
-				this.precoDiaria = precoDiaria;
-			}
 			
-			// Métodos da classe, testa se o quarto esta vazio
+			
+						
+			// Métodos da classe
+			// Testa se o quarto esta vazio
 			public  void quartoVazio(){
 				if(isOcupado() != true)
 					setOcupado(false);
 				else
 					setOcupado(true);
+			}
+			// Calcula despesas extras
+			public float extras(int camaExtra,boolean banheira,TipoQuarto tipo){
+				if(tipo == tipoQuarto.CHALE){
+					return 1.2f*(camaExtra*1.1f);
+				}
+				if(banheira){
+					return 1.2f;
+				}
+				else{
+					return 1;
+				}
+				
+				
 			}
 }
