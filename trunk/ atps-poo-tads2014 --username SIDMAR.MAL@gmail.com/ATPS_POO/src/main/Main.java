@@ -13,11 +13,9 @@ import tads_atps_poo.*;
 
 import java.util.ArrayList;
 import java.util.Collection;
-
 import javax.swing.*;
-
 import java.util.Scanner;
-import java.lang.InterruptedException;
+
 
 
 
@@ -32,11 +30,11 @@ public class Main {
 			if(i <= 25)
 				quartos[i] = new Quarto(0,0);
 				quartos[i].setTipoQuarto(quartos[i].getTipoQuarto().COMUM); // De 1 - 25 quartos comuns
-			quartos[i].setBanheira(true);
+			quartos[i].setBanheira(false);
 			if(i <= 50)
 				quartos[i] = new Quarto(0,0);
 				quartos[i].setTipoQuarto(quartos[i].getTipoQuarto().COMUM); // De 26 - 50 quartos com banheira
-			quartos[i].setBanheira(false);
+			quartos[i].setBanheira(true);
 			if(i >= 60)
 				quartos[i] = new Quarto(0,0);
 				quartos[i].setTipoQuarto(quartos[i].getTipoQuarto().CHALE); // De 51 - 60 chales
@@ -57,7 +55,7 @@ public class Main {
 	        			
 			Scanner s = new Scanner(System.in);
 			System.out.println("\t\t----- MENU PRINCIPAL -----\n\n");
-			System.out.println("\t  <1> CHECK IN  <2> CHECK OUT  <3> ATUALIZAR DIARIA <4> SAIR");
+			System.out.println("\t  <0> SAIR <1> CHECK IN  <2> CHECK OUT  <3> ATUALIZAR DIARIA");
 			int opcao = s.nextInt();
 			switch(opcao){
 			case 1:
@@ -68,7 +66,7 @@ public class Main {
 				break;
 			case 3:
 				atualizarValor();
-			case 4:
+			case 0:
 				System.exit(0);
 			default:
 				JOptionPane.showMessageDialog(null,"COMANDO NAO RECONHECIDO");

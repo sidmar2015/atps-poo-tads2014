@@ -24,8 +24,12 @@ public class Quarto {
 				super();
 				this.numQuarto = numQuarto;
 				this.camaExtra = camaExtra;
+				this.banheira  = banheira;
+				this.ocupado   = ocupado;
+				this.precoDiaria = precoDiaria;
+				this.diarias   = diarias;
 				
-				}
+			}
 			
 			// Métodos que retornam variáveis encapsuladas da classe
 			public boolean isBanheira() {
@@ -86,10 +90,11 @@ public class Quarto {
 			// Calcula despesas extras
 			public float extras(int camaExtra,boolean banheira,TipoQuarto tipo){
 				if(tipo == tipoQuarto.CHALE){
-					return 1.2f*(camaExtra*1.1f);
-				}
+					return 1.2f*(camaExtra*1.1f);// se o tipo de acomodação for um chalé o custo é 20%
+				}	                             // e se tiver cama extra soma-se mais 10% a diária
+				
 				if(banheira){
-					return 1.2f;
+					return 1.18f; // se for um quarto com banheira soma-se 18% ao valor da diária
 				}
 				else{
 					return 1;
