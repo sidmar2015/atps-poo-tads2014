@@ -27,16 +27,14 @@ public class Main {
 		
 		/* Instancia dos 60 quartos*/
 			for(int i=1;i<61;i++){
+				quartos[i] = new Quarto(i,0);
 			if(i <= 25)
-				quartos[i] = new Quarto(0,0);
 				quartos[i].setTipoQuarto(quartos[i].getTipoQuarto().COMUM); // De 1 - 25 quartos comuns
 			quartos[i].setBanheira(false);
 			if(i <= 50)
-				quartos[i] = new Quarto(0,0);
 				quartos[i].setTipoQuarto(quartos[i].getTipoQuarto().COMUM); // De 26 - 50 quartos com banheira
 			quartos[i].setBanheira(true);
 			if(i >= 60)
-				quartos[i] = new Quarto(0,0);
 				quartos[i].setTipoQuarto(quartos[i].getTipoQuarto().CHALE); // De 51 - 60 chales
 			quartos[i].setBanheira(false);
 		} // Fim do laço for
@@ -178,6 +176,7 @@ public class Main {
 			Float valor = new Float(JOptionPane.showInputDialog("Digite o novo valor da diaria"));
 				for(int i=1;i<61;i++){
 					quartos[i].setPrecoDiarias(valor);
+					menu();
 				}
 		}
 	
