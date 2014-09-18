@@ -29,11 +29,11 @@ public class Main {
 			for(int i=1;i<61;i++){
 				quartos[i] = new Quarto(i,0);
 			if(i <= 25)
-				quartos[i].setTipoQuarto(quartos[i].getTipoQuarto().COMUM); // De 1 - 25 quartos comuns
-			quartos[i].setBanheira(false);
-			if(i <= 50)
-				quartos[i].setTipoQuarto(quartos[i].getTipoQuarto().COMUM); // De 26 - 50 quartos com banheira
+				quartos[i].setTipoQuarto(quartos[i].getTipoQuarto().COMUM); // De 1 - 25 quartos com banheira
 			quartos[i].setBanheira(true);
+			if(i <= 50)
+				quartos[i].setTipoQuarto(quartos[i].getTipoQuarto().COMUM); // De 26 - 50 quartos sem banheira
+			quartos[i].setBanheira(false);
 			if(i >= 60)
 				quartos[i].setTipoQuarto(quartos[i].getTipoQuarto().CHALE); // De 51 - 60 chales
 			quartos[i].setBanheira(false);
