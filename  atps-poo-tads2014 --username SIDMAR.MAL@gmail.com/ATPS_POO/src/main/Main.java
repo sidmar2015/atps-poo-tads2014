@@ -23,9 +23,9 @@ import java.lang.InterruptedException;
 
 public class Main {
 	
-	public static Quarto[] quartos = Quarto[61];
+	public static Quarto[] quartos = new Quarto[61];
 			
-	public static void main(String[] args) throws InterruptedException{
+	public static void main(String[] args){
 		
 		/* Instancia dos 60 quartos*/
 			for(int i=1;i<61;i++){
@@ -57,7 +57,7 @@ public class Main {
 	        			
 			Scanner s = new Scanner(System.in);
 			System.out.println("\t\t----- MENU PRINCIPAL -----\n\n");
-			System.out.println("\t  <1> CHECK IN  <2> CHECK OUT  <3> SAIR");
+			System.out.println("\t  <1> CHECK IN  <2> CHECK OUT  <3> ATUALIZAR DIARIA <4> SAIR");
 			int opcao = s.nextInt();
 			switch(opcao){
 			case 1:
@@ -67,6 +67,8 @@ public class Main {
 				registrarSaida();
 				break;
 			case 3:
+				atualizarValor();
+			case 4:
 				System.exit(0);
 			default:
 				JOptionPane.showMessageDialog(null,"COMANDO NAO RECONHECIDO");
@@ -173,7 +175,13 @@ public class Main {
 			}// fim else
 		}// fim metodo
 		
-	
+		/* Atualiza o valor da diarias*/
+		public static void atualizarValor(){
+			Float valor = new Float(JOptionPane.showInputDialog("Digite o novo valor da diaria"));
+				for(int i=1;i<61;i++){
+					quartos[i].setPrecoDiarias(valor);
+				}
+		}
 	
 
 }
